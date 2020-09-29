@@ -155,6 +155,7 @@ For Each ws In Worksheets
     increase_ticker = ws.Cells(2, 9).Value
     decrease_ticker = ws.Cells(2, 9).Value
 
+	' Loop through summary table to calculate max_increase, max_decrease & max_total
     For i = 2 To summary_row - 1
         If ws.Cells(i, 11).Value < max_decrease Then
             max_decrease = ws.Cells(i, 11).Value
