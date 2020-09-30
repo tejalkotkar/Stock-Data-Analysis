@@ -18,8 +18,6 @@
 '
 '1. Your solution will also be able to return the stock with the "Greatest % increase", "Greatest % decrease" and "Greatest total volume". The solution will look as follows:
 '
-'![hard_solution](Images/hard_solution.png)
-'
 '2. Make the appropriate adjustments to your VBA script that will allow it to run on every worksheet, i.e., every year, just by running the VBA script once.
 
 
@@ -48,7 +46,7 @@ For Each ws In Worksheets
     flag = 0
     column = 1
 
-    'Loop Through all rows to fine Yearly Change, Percent Change and Total Volume
+    'Loop Through all rows to find Yearly Change, Percent Change and Total Volume
     For i = 2 To LRow
     
         If flag = 0 Then
@@ -140,7 +138,9 @@ For Each ws In Worksheets
         End If
     Next j
 
-    'CHALLENGE I
+'--------------------------------------------------------------------------------
+                        'CHALLENGE I
+'--------------------------------------------------------------------------------
     ' Find out greatest % Increase, decrease and total
 
     Dim max_total As LongPtr
@@ -155,7 +155,7 @@ For Each ws In Worksheets
     increase_ticker = ws.Cells(2, 9).Value
     decrease_ticker = ws.Cells(2, 9).Value
 
-	' Loop through summary table to calculate max_increase, max_decrease & max_total
+    ' Loop through summary table to calculate max_increase, max_decrease & max_total
     For i = 2 To summary_row - 1
         If ws.Cells(i, 11).Value < max_decrease Then
             max_decrease = ws.Cells(i, 11).Value
@@ -196,4 +196,3 @@ For Each ws In Worksheets
 Next ws
         
 End Sub
-
