@@ -46,7 +46,7 @@ For Each ws In Worksheets
     flag = 0
     column = 1
 
-    'Loop Through all rows to find Yearly Change, Percent Change and Total Volume
+    'Loop Through all rows to fine Yearly Change, Percent Change and Total Volume
     For i = 2 To LRow
     
         If flag = 0 Then
@@ -57,32 +57,32 @@ For Each ws In Worksheets
         'Searches for when value of next cell is differnt value of current cell
         If ws.Cells(i + 1, column).Value <> ws.Cells(i, column).Value Then
      
-        'Get the ticker symbol from cell value and store it in variable
-        ticker_symbol = ws.Cells(i, column).Value
+            'Get the ticker symbol from cell value and store it in variable
+            ticker_symbol = ws.Cells(i, column).Value
         
-        'Get the closing price at the end of the year
-        End_Close = ws.Cells(i, 6).Value
+            'Get the closing price at the end of the year
+            End_Close = ws.Cells(i, 6).Value
         
-        'Calculating Yearly change
-        yearly_change = End_Close - Start_Open
+            'Calculating Yearly change
+            yearly_change = End_Close - Start_Open
         
-        'calculating Percent Change
-        If yearly_change = 0 Or Start_Open = 0 Then
-            percent_change = 0
-        Else
-            percent_change = yearly_change / Start_Open
-        End If
+            'calculating Percent Change
+            If yearly_change = 0 Or Start_Open = 0 Then
+                percent_change = 0
+            Else
+                percent_change = yearly_change / Start_Open
+            End If
                 
-        'Calculating Total volume
-        Total = Total + ws.Cells(i, 7).Value
-        'Debug.Print Total
+            'Calculating Total volume
+            Total = Total + ws.Cells(i, 7).Value
+            'Debug.Print Total
     
-        'Add Yearly Change, Percent Change and Total to Dict
-        dict.Add ticker_symbol, Array(yearly_change, percent_change, Total)
+            'Add Yearly Change, Percent Change and Total to Dict
+            dict.Add ticker_symbol, Array(yearly_change, percent_change, Total)
     
-        'Reset Total & flag to 0
-         Total = 0
-         flag = 0
+            'Reset Total & flag to 0
+            Total = 0
+            flag = 0
     
         'If current and next cell is same just add up Total in else block
         Else
@@ -196,3 +196,5 @@ For Each ws In Worksheets
 Next ws
         
 End Sub
+
+
